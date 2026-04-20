@@ -93,6 +93,11 @@ export default function LoginPage() {
             </button>
           </div>
         </div>
+        <style>{`
+          @media (max-width: 480px) {
+            .login-card { padding: 20px 16px !important; }
+          }
+        `}</style>
       </div>
     </div>
   );
