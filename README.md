@@ -4,6 +4,17 @@ A full-stack web application for tracking crop progress across multiple fields d
 
 ---
 
+## 🚀 Live Deployment
+
+| Service  | URL                                              |
+|----------|--------------------------------------------------|
+| Frontend | https://smartseason-zeta.vercel.app/login       |
+| Backend  | https://smartseason-wcdy.onrender.com/          |
+
+**Try it now:** Visit the [live frontend](https://smartseason-zeta.vercel.app/login) with demo credentials below.
+
+---
+
 ## Demo Credentials
 
 | Role  | Email                       | Password   |
@@ -31,7 +42,13 @@ SQLite was chosen over PostgreSQL/MySQL to eliminate the need for a running data
 
 ## Setup Instructions
 
-### Prerequisites
+### Option 1: Use Live Deployment (Easiest)
+
+No installation needed! Visit https://smartseason-zeta.vercel.app/login and use the [demo credentials](#demo-credentials) above.
+
+### Option 2: Run Locally
+
+#### Prerequisites
 - Node.js 18+
 - npm
 
