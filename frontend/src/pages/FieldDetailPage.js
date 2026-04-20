@@ -91,13 +91,7 @@ export default function FieldDetailPage() {
         </div>
       </div>
 
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 340px",
-        gap: 24,
-        alignItems: "start",
-      }}
-      className="detail-grid">
+      <div className="detail-grid">
         {/* Left column */}
         <div>
           {/* Field info card */}
