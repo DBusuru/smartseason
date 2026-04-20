@@ -38,7 +38,7 @@ SQLite was chosen over PostgreSQL/MySQL to eliminate the need for a running data
 ### 1. Clone and install
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/DBusuru/smartseason
 cd smartseason
 
 # Install backend dependencies
