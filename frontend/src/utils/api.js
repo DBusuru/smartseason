@@ -1,4 +1,4 @@
-const BASE = process.env.REACT_APP_API_URL || "https://smartseason-wcdy.onrender.com";
+const BASE = process.env.REACT_APP_API_URL || "https://smartseason-wcdy.onrender.com/api";
 
 function getToken() {
   return localStorage.getItem("ss_token");
