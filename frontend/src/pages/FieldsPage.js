@@ -49,20 +49,21 @@ export default function FieldsPage() {
       </div>
 
       {/* Filters */}
-      <div style={{ display: "flex", gap: 10, marginBottom: 24, flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: 10, marginBottom: 24, flexWrap: "wrap" }} className="filters-bar">
         <input
           type="text"
           placeholder="Search by name or crop…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          style={{ maxWidth: 220 }}
+          style={{ maxWidth: 220, flex: 1, minWidth: 160 }}
+          className="search-input"
         />
-        <select value={stageFilter} onChange={e => setStageFilter(e.target.value)} style={{ width: "auto" }}>
+        <select value={stageFilter} onChange={e => setStageFilter(e.target.value)} style={{ width: "auto", minWidth: 140 }}>
           {STAGES.map(s => (
             <option key={s} value={s}>{s === "all" ? "All stages" : s.charAt(0).toUpperCase() + s.slice(1)}</option>
           ))}
         </select>
-        <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)} style={{ width: "auto" }}>
+        <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)} style={{ width: "auto", minWidth: 140 }}>
           {STATUSES.map(s => (
             <option key={s} value={s}>{s === "all" ? "All statuses" : s === "at_risk" ? "At Risk" : s.charAt(0).toUpperCase() + s.slice(1)}</option>
           ))}
@@ -73,6 +74,36 @@ export default function FieldsPage() {
           </button>
         )}
       </div>
+
+      <style>{`
+        .filters-bar {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 24px;
+          flex-wrap: wrap;
+        }
+        .search-input {
+          max-width: 220px;
+          flex: 1;
+          min-width: 160px;
+        }
+        @media (max-width: 767px) {
+          .filters-bar {
+            flex-direction: column;
+            gap: 10px;
+          }
+          .search-input {
+            max-width: none;
+            width: 100%;
+          }
+          .filters-bar select {
+            width: 100% !important;
+          }
+          .filters-bar button {
+            width: 100%;
+          }
+        }
+      `}</style>
 
       {filtered.length === 0 ? (
         <div className="empty-state">

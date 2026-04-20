@@ -81,7 +81,7 @@ export default function FieldFormPage() {
 
   return (
     <Layout>
-      <div style={{ maxWidth: 600 }}>
+      <div style={{ maxWidth: 600 }} className="form-container">
         <button className="btn-secondary btn-sm" onClick={() => navigate(isEdit ? `/fields/${id}` : "/fields")} style={{ marginBottom: 20 }}>
           ← Back
         </button>
@@ -105,7 +105,7 @@ export default function FieldFormPage() {
               />
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }} className="form-grid">
               <div className="form-group">
                 <label>Crop type *</label>
                 <input
@@ -130,7 +130,7 @@ export default function FieldFormPage() {
               </div>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }} className="form-grid">
               <div className="form-group">
                 <label>Current stage</label>
                 <select value={form.stage} onChange={e => set("stage", e.target.value)}>
@@ -176,7 +176,7 @@ export default function FieldFormPage() {
 
             <hr className="divider" />
 
-            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
+            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }} className="form-button-group">
               <button
                 type="button"
                 className="btn-secondary"
@@ -191,6 +191,43 @@ export default function FieldFormPage() {
           </form>
         </div>
       </div>
+      <style>{`
+        .form-container {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        .form-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        @media (max-width: 767px) {
+          .form-container {
+            max-width: 100%;
+          }
+          .form-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+          .form-button-group {
+            flex-direction: column;
+            gap: 12px;
+          }
+          .form-button-group button {
+            width: 100%;
+          }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .form-container {
+            max-width: 90%;
+            margin: 0 auto;
+          }
+          .form-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+          }
+        }
+      `}</style>
     </Layout>
   );
 }

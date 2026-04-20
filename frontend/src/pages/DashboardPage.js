@@ -76,7 +76,7 @@ export default function DashboardPage() {
       {stats && (
         <div className="card" style={{ marginBottom: 32 }}>
           <h2 style={{ fontSize: 16, marginBottom: 16 }}>Stage Breakdown</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 12 }}>
             {[
               { key: "planted", label: "🌱 Planted", color: "var(--blue-600)" },
               { key: "growing", label: "🌿 Growing", color: "var(--green-600)" },

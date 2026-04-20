@@ -91,13 +91,19 @@ export default function FieldDetailPage() {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: 24, alignItems: "start" }}>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 340px",
+        gap: 24,
+        alignItems: "start",
+      }}
+      className="detail-grid">
         {/* Left column */}
         <div>
           {/* Field info card */}
           <div className="card" style={{ marginBottom: 24 }}>
             <h2 style={{ fontSize: 16, marginBottom: 16 }}>Field Details</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 24px", fontSize: 14 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 24px", fontSize: 14 }} className="field-details-grid">
               <div>
                 <div style={{ color: "var(--text-muted)", fontSize: 12, marginBottom: 2 }}>CURRENT STAGE</div>
                 <span className={`badge badge-${field.stage}`}>{STAGE_LABELS[field.stage]}</span>
@@ -228,6 +234,49 @@ export default function FieldDetailPage() {
           </div>
         )}
       </div>
+      <style>{`
+        .detail-grid {
+          display: grid;
+          grid-template-columns: 1fr 340px;
+          gap: 24px;
+          align-items: start;
+        }
+        .field-details-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px 24px;
+        }
+        @media (max-width: 767px) {
+          .detail-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+          .field-details-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+          }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .detail-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+          .field-details-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .detail-grid {
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+          }
+          .field-details-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+          }
+        }
+      `}</style>
     </Layout>
   );
 }
