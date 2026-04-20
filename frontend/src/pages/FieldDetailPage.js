@@ -68,7 +68,7 @@ export default function FieldDetailPage() {
         </button>
         <div className="page-header">
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+            <div className="field-title-row">
               <h1 style={{ fontSize: 26 }}>{field.name}</h1>
               <span className={`badge badge-${field.status}`}>{STATUS_LABELS[field.status]}</span>
             </div>
@@ -79,7 +79,7 @@ export default function FieldDetailPage() {
             </div>
           </div>
           {user?.role === "admin" && (
-            <div style={{ display: "flex", gap: 8 }}>
+            <div className="field-actions">
               <button className="btn-secondary btn-sm" onClick={() => navigate(`/fields/${id}/edit`)}>
                 Edit field
               </button>
@@ -246,35 +246,26 @@ export default function FieldDetailPage() {
           grid-template-columns: 1fr 1fr;
           gap: 12px 24px;
         }
+        .field-title-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 8px;
+          flex-wrap: wrap;
+        }
+        .field-actions {
+          display: flex;
+          gap: 8px;
+          flex-shrink: 0;
+        }
         @media (max-width: 767px) {
-          .detail-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
-          }
-          .field-details-grid {
-            grid-template-columns: 1fr;
-            gap: 12px;
-          }
+          .detail-grid { grid-template-columns: 1fr; gap: 20px; }
+          .field-details-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+          .field-actions { width: 100%; }
+          .field-actions button { flex: 1; }
         }
         @media (min-width: 768px) and (max-width: 1023px) {
-          .detail-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
-          }
-          .field-details-grid {
-            grid-template-columns: 1fr;
-            gap: 12px;
-          }
-        }
-        @media (min-width: 1024px) {
-          .detail-grid {
-            grid-template-columns: 1fr 340px;
-            gap: 24px;
-          }
-          .field-details-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 12px 24px;
-          }
+          .detail-grid { grid-template-columns: 1fr; gap: 20px; }
         }
       `}</style>
     </Layout>
